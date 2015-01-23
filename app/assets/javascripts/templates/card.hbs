@@ -1,0 +1,14 @@
+<div>
+  {{#if editMode}}
+    <span class="edit-form">
+      <input type="text" class="edit-form-text" value="{{description}}">
+    </span>
+  {{else}}
+    <span class="text">{{description}}</span>
+  {{/if}}
+
+  <span class="delete">X</span>
+  {{#unless completed}}
+    <span class="finish">Mark as Done</span>
+  {{/unless}}
+</div>

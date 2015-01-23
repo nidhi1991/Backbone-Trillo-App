@@ -1,0 +1,183 @@
+  [1m[36m (5036.2ms)[0m  [1mDROP DATABASE IF EXISTS "backbone_trillo_app_development"[0m
+PG::ObjectInUse: ERROR:  database "backbone_trillo_app_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+: DROP DATABASE IF EXISTS "backbone_trillo_app_development"
+  [1m[36m (116.1ms)[0m  [1mDROP DATABASE IF EXISTS "backbone_trillo_app_development"[0m
+  [1m[35m (314.2ms)[0m  CREATE DATABASE "backbone_trillo_app_development" ENCODING = 'unicode'
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (21.7ms)[0m  CREATE TABLE "cards" ("id" serial primary key, "description" character varying(255), "completed" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (16.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150107144247')
+  [1m[36m (116.9ms)[0m  [1mDROP DATABASE IF EXISTS "backbone_trillo_app_test"[0m
+  [1m[35m (330.5ms)[0m  CREATE DATABASE "backbone_trillo_app_test" ENCODING = 'unicode'
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "cards" ("id" serial primary key, "description" character varying(255), "completed" boolean, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150107144247')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCard Load (0.4ms)[0m  SELECT "cards".* FROM "cards"
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.1ms)[0m  INSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["completed", "t"], ["created_at", "2015-01-23 19:36:28.933494"], ["description", "Port Trillo to Rails"], ["updated_at", "2015-01-23 19:36:28.933494"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["completed", "t"], ["created_at", "2015-01-23 19:36:28.971888"], ["description", "Appreciate the ease of switching persistence"], ["updated_at", "2015-01-23 19:36:28.971888"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["completed", "f"], ["created_at", "2015-01-23 19:36:28.982781"], ["description", "Write a Backbone app from scratch"], ["updated_at", "2015-01-23 19:36:28.982781"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mCard Load (0.5ms)[0m  SELECT "cards".* FROM "cards"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "cards" WHERE "cards"."id" = $1  [["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "cards" WHERE "cards"."id" = $1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["completed", "t"], ["created_at", "2015-01-23 19:36:39.231386"], ["description", "Port Trillo to Rails"], ["updated_at", "2015-01-23 19:36:39.231386"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["completed", "t"], ["created_at", "2015-01-23 19:36:39.233840"], ["description", "Appreciate the ease of switching persistence"], ["updated_at", "2015-01-23 19:36:39.233840"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["completed", "f"], ["created_at", "2015-01-23 19:36:39.235441"], ["description", "Write a Backbone app from scratch"], ["updated_at", "2015-01-23 19:36:39.235441"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-23 14:37:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#index as HTML
+  Rendered text template within layouts/application (0.0ms)
+Completed 200 OK in 1445ms (Views: 1387.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/cards.css?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/underscore/underscore.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/backbone/backbone.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/backbone.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/backboneLocalStorage.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/handlebars.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/backbone/models/card.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/backbone/collections/cardsCollection.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/backbone/views/cardView.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/templates/card.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/assets/cards.js?body=1" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+
+
+Started GET "/cards" for 127.0.0.1 at 2015-01-23 14:37:07 -0500
+Processing by CardsController#index as JSON
+  [1m[35mCard Load (0.7ms)[0m  SELECT "cards".* FROM "cards"
+  Rendered cards/index.json.jbuilder (111.7ms)
+Completed 200 OK in 125ms (Views: 116.9ms | ActiveRecord: 3.3ms)
+
+
+Started DELETE "/cards/6" for 127.0.0.1 at 2015-01-23 14:37:10 -0500
+Processing by CardsController#destroy as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mCard Load (0.5ms)[0m  [1mSELECT  "cards".* FROM "cards"  WHERE "cards"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Completed 204 No Content in 11ms (ActiveRecord: 3.1ms)
+
+
+Started DELETE "/cards/5" for 127.0.0.1 at 2015-01-23 14:37:12 -0500
+Processing by CardsController#destroy as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mCard Load (0.7ms)[0m  [1mSELECT  "cards".* FROM "cards"  WHERE "cards"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 204 No Content in 5ms (ActiveRecord: 1.7ms)
+
+
+Started DELETE "/cards/4" for 127.0.0.1 at 2015-01-23 14:37:13 -0500
+Processing by CardsController#destroy as JSON
+  Parameters: {"id"=>"4"}
+  [1m[36mCard Load (0.4ms)[0m  [1mSELECT  "cards".* FROM "cards"  WHERE "cards"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Completed 204 No Content in 5ms (ActiveRecord: 2.1ms)
+
+
+Started POST "/cards" for 127.0.0.1 at 2015-01-23 14:37:15 -0500
+Processing by CardsController#create as JSON
+  Parameters: {"description"=>"sdsdsd", "completed"=>false, "card"=>{"description"=>"sdsdsd", "completed"=>false}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cards" ("completed", "created_at", "description", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["completed", "f"], ["created_at", "2015-01-23 19:37:15.884638"], ["description", "sdsdsd"], ["updated_at", "2015-01-23 19:37:15.884638"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered cards/show.json.jbuilder (0.5ms)
+Completed 201 Created in 11ms (Views: 3.1ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/cards/7" for 127.0.0.1 at 2015-01-23 14:37:17 -0500
+Processing by CardsController#update as JSON
+  Parameters: {"description"=>"sdsdsd", "completed"=>true, "id"=>"7", "created_at"=>"2015-01-23T19:37:15.884Z", "updated_at"=>"2015-01-23T19:37:15.884Z", "card"=>{"id"=>"7", "description"=>"sdsdsd", "completed"=>true, "created_at"=>"2015-01-23T19:37:15.884Z", "updated_at"=>"2015-01-23T19:37:15.884Z"}}
+  [1m[35mCard Load (0.6ms)[0m  SELECT  "cards".* FROM "cards"  WHERE "cards"."id" = $1 LIMIT 1  [["id", 7]]
+Unpermitted parameters: id, created_at, updated_at
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "cards" SET "completed" = $1, "updated_at" = $2 WHERE "cards"."id" = 7  [["completed", "t"], ["updated_at", "2015-01-23 19:37:17.304993"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  Rendered cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 10ms (Views: 2.8ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/cards/7" for 127.0.0.1 at 2015-01-23 14:37:18 -0500
+Processing by CardsController#destroy as JSON
+  Parameters: {"id"=>"7"}
+  [1m[35mCard Load (0.4ms)[0m  SELECT  "cards".* FROM "cards"  WHERE "cards"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "cards" WHERE "cards"."id" = $1  [["id", 7]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+Completed 204 No Content in 6ms (ActiveRecord: 2.2ms)

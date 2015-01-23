@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BackboneTrilloApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>To-do</h1>
+  <p><i>Be organized!</i></p>
+
+  <div id="new-card">
+    <input id="new-card-text" type="text" placeholder="What do you need to do?"/>
+    <button id="new-card-button">Add Card</button>
+  </div>
+
+  <div id="card-stacks">
+    <div id="todo-column" class="column">
+      <h2 class="column-heading">To Do</h2>
+      <ul class="card-list">
+      </ul>
+    </div>
+
+    <div id="done-column" class="column">
+      <h2 class="column-heading">Done</h2>
+      <ul class="card-list">
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
